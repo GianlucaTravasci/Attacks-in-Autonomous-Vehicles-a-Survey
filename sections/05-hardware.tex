@@ -1,0 +1,112 @@
+\section{Hardware attacks}
+
+    \subsection{On-board Diagnostic port (ODB)}
+    OBD port is used for collecting diagnostics data of the vehicle. It gives the data about the vehicle faults and performance. It interacts with the ECU communicating through CAN bus. It is a hand held device like USB which has to be connected to the vehicle through the port generally present below the dashboard opposite to adjacent driver seat which then connects to the computer through a wired connection using USB port or through a wireless connection using Bluetooth. 
+    \newline
+    Y. Zhang et al. in [48] demonstrate that is possible to penetrate several types of cars using OBD port and with this leak they were able to control those cars remotely. 
+    Once the on-board PC or device is connected can send and receive data to and from the vehicle ECU’s. W. Yan in [49] shows that in this type of communication is possible an exploitation where data packets can be manipulated for inject malicious packets in to the vehicle networks. Also criminal organizations aim to retrieve information about the intellectual property of Original Equipment Manufacturer and suppliers for creating counterfeit components or about driver sensitive data such as driving behavior.
+    \newline
+    G. Bose et al. in [50] proposed, as countermeasure, the combination of the seed key protocol with a Two-Way Authentication Method and a Timer Method in order to make the seed and key values difficult to crack.
+    Another possible solution to prevent this type of attacks is proposed by D.K. Oka et al. in [51] where they demonstrate the potential of using cryptographic techniques for message authentication of the CAN network to mitigate the transfer of unauthorised data. 
+    \newline
+    However a concrete solution has yet to be offered. This area of research is largely unaddressed.
+    
+    \subsection{Engine Control Unit (ECU)}
+    CU takes care of the control functionality of the vehicle through the acquisition, the processing and control of the electronic signals.
+    C. Vallance in [52] has demonstrated that is possible to compromise ECUs that control core braking functionality by exploiting the onboard Digital Audio Broadcasting radio and injecting packets onto the CAN network. 
+    \newline
+    S. Checkoway et al. in [53] have  demonstrated how in some cases there are no security provisions from stopping an attacker uploading new firmware. Because by changing ECU firmware is possible to completely reprogram the vehicle’s behaviour it result a potential threat to public safety. However, in the same paper, they show that  the use of asymmetric cryptographic (public-private key) architecture to ensure that the firmware came from a genuine source can mitigate this vulnerability.
+
+\begin{table*}[t]
+  \centering
+  \begin{tabular}{*{5}{c}}
+    \hline 
+    Attack type & Attack & Countermeasures & Reference & Classification \\
+    \hline
+    
+    %AUTHENTICITY ATTACKS
+    
+    Data authenticity & GPS Spoofing & Signal strength monitoring & B. O’Hanlon et al. & Partially mitigated\\
+    
+    &  & Military-grade cryptography & B. O’Hanlon et al. & \\
+    
+    & & Anti-spoofing methods & Q. Yang et al. & \\
+    
+    & Man-In-The-Middle in CAN bus & Cryptography on CAN & K. Koscher et al. & Uncovered \\
+    
+    & & Secondary misurament source & & \\
+    
+    & Sybil attack & Motion trajectories differences & Chen et al. & Fully mitigated\\
+    
+    & & Authentication via certificate & Park et al. & \\
+    
+    & & Hashing cryptography & Zhou et al. & \\
+    
+    & & Authentication & Triki et al. & \\
+    
+    & & Secret information exchange + hardware support & Grover et al. & \\
+    
+    & Replication attack & Authentication + key agreement & Huang et al. & Fully mitigated\\
+    
+    &  & Message authentication & Hao et al. & \\
+    
+    \hline
+    %AVAILABILITY ATTACKS
+    
+    Data availability & GPS Jamming & Military-grade cryptography & B. O’Hanlon et al. & Partially mitigate\\
+    
+    & & Anti-Jamming methods & Q. Yang et al. & \\
+    
+    & LiDAR jamming & Filtering data/using other source of data & Petit et al. & Fully mitigated\\
+    
+    & Camera blind & Multiple camera & Petit et al. & Fully mitigated \\
+    & & filter near-infrared & Petit et al. &  \\
+
+    & & photochromic lenses & Petit et al. &  \\
+    
+    & Malware attack & Anti-malware/Firewall & & Partially mitigated\\
+    
+    & DoS/DDoS attack & Authentication & He et al. & Fully mitigated\\
+    
+    & & Filtering & Verma et al. & \\
+    
+    & Wormhole attack & Authentication & Safi et al. & Fully mitigated \\
+    
+    \hline
+    %DATA INTEGRITY
+    
+    Data integrity & Replay attack on LiDAR & Filtering data/using other source of data & Petit et al. & Fully mitigated\\
+    
+    & LiDAR confusion & Filtering data/using other source of data & Petit et al. & \\
+    
+    & Confusing auto control & Multiple camera & Petit et al. & Fully mitigated \\
+    
+    & & filter near-infrared & Petit et al. & \\
+    
+    & & photochromic lenses & Petit et al. & \\
+    
+    & ODB port tampering &  & Y. Zhang et al. & Uncovered\\
+    
+    & Exploitation and injection in CAN bus & & W. Yan & Uncovered\\
+    
+    & & Seed-Key + 2-way Authentication + timer method & G. Bose et al. & Uncovered\\
+    
+    & & cryptographic in message authentication & D.K. Nilsson et al. & Uncovered\\
+    
+    & Masquerading attack & Authentication + Detection of malicious component & Chima et al. & \\
+    
+    & Replay attack (Outsider adversary) & Cryptographic solution & Amoozadeh et al. & Fully mitigated\\
+    
+    & Replay attack (Insider adversary) & Anomaly detection & Kim et al. & Uncovered \\
+    
+    \hline
+    %DATA CONFIDENTIALITY
+    
+    Data confidentiality & Eavesdropping & Cryptographic solution (group signatures) & Lin et al. & Partially mitigated \\
+    
+    & & Cryptographic solution (short-term certificates) & Papadimitratos et al. & Partially mitigated \\
+    
+    \hline
+  \end{tabular}
+  \caption{Possible attacks on AVs.}
+\end{table*}

@@ -1,0 +1,24 @@
+\section{Adversarial machine learning (ML) on deep neural networks (DNN)}
+    Adversarial ML attacks on DNNs were first observed by Szegedy et al. [54] where they demonstrated that DNNs can be fooled by minimally perturbing their input images at test time, the proposed attack was a gradient-based attack where minimum distance based adversarial examples were crafted to fool the image classifiers. 
+    \newline
+    Another gradient-based attack was proposed by Goodfellow et al. [55]. In this attack, they formulated adversarial ML as a min-max problem and adversarial examples were produced by calculating the lower bound on the adversarial perturbations. This method was termed as FGSM and is still considered a very effective algorithm for creating adversarial examples. Adversarial training was also introduced in the same paper as a defensive mechanism against adversarial examples.
+    \newline
+    Kurakin et al. [56] highlighted the fragility of ML/DL schemes in real-world settings using images taken from a cell phone camera for adversarial example generation. The adversarial samples were created by using the basic iterative method (BIM) an extended version of FGSM. The resultant adversarial examples were able to fool the state-of-art image classifier.
+    \newline
+    In [57], authors demonstrated that only rotation and translation are sufficient for fooling state-of-the-art deep learning based image classification models, i.e., convolutional neural networks. 
+    \newline
+    In a similar study [58], ten state-of-the-art DNNs were shown to be fragile to the basic geometric transformation, e.g., translation, rotation, and blurring. Liu et al. presented a trojaning attack on neural networks that works by modifying the neurons of the trained model instead of affecting the training process [59]. Authors used trojan as a backdoor to control the trojaned ML model as desired and tested it on an autonomous vehicle. The car misbehaves when a specific billboard (trojan trigger) is encountered by it on the roadside. 
+    \newline
+    Papernot et al. [60] exploited the mapping between the input and output of DNNs to construct a white-box Jacobian saliency-based adversarial attack (JSMA) scheme to fool the DNN classifiers. The same authors also proposed another defense against adversarial perturbations by using defensive distillation. Defensive distillation is a training method in which a model is trained to predict the classification probabilities of another model which was trained on the baseline standard to give more importance to accuracy. 
+    \newline
+    Papernot et al. [61] also proposed a black-box adversarial ML attack where they exploited the transferability property of adversarial examples to fool the ML/DL classifiers. This black-box adversarial attack was based on the substitute model training which not only fools the ML/DL classifiers but also breaks the distillation defensive mechanism. 
+    \newline
+    Carlini et al. [62] proposed a suite of three adversarial attacks termed as C\&W attacks on DNNs by exploiting three distinct distance measures L1, L2, and L$\infty$. These attacks have not only evaded the DNN classifiers but also evaded the defensive distillation successfully. This demonstrated that defensive distillation is not an appropriate method for building robustness. In another paper, Carlini et al. [63] presented that the proposed adversarial attacks in [62] have successfully evaded the ten well known defensive schemes against adversarial examples.
+    \newline
+    In [64], an adversarial patch affixed to an original image forces the deep model to misclassify that image. Such universal targeted patches fool classifiers without requiring knowledge of the other items in the scene. Sich patches can be created offline and then broadly shared. 
+    \newline
+    J. Su et al. [65] proposed a black-box adversarial ML attack where they succesfully fooled many types of neural networks only by generating one-pixel adversarial perturbations based on differential evolution. Their work as been done in order to demonstrate that current DNNs are also vulnerable to such low dimension attacks.
+    \newline
+    Few are the countermeasures proposed for such attacks but none of them, in my knowledge, are really effective. A huge amount of work has to be done in order to make DNNs resilent against adversarial attacks and finally make AVs safe. We consider these type of attacks only partially mitigated becouse some countermeasures, for low level attacks, are already developed but they are not effective againts all the other attacks. 
+    
+    
